@@ -1,0 +1,152 @@
+@import '/public/const.scss';
+
+@keyframes shimmer-cat {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.categories-title{
+    font-family: 'Muller';
+    font-size: clamp(1.875rem, 1.5865rem + 1.2821vw, 3.125rem) !important;
+    font-weight: 700;
+    padding: 20px 10% 0;
+    @media screen and (max-width: 1785px) {
+        padding: 20px 5% 0;
+    }
+    
+    @media screen and (max-width: 600px) {
+        padding: 20px 3% 0;
+    }
+}
+
+.categories{
+    padding: 30px 10% !important;
+    @media screen and (max-width: 1785px) {
+        padding: 30px 5% !important;
+    }
+    @media screen and (max-width: 600px) {
+        padding: 20px 3% !important;
+    }
+    .skeleton-categories{
+            background: linear-gradient(90deg, white, #c3e4e7, white);
+            background-size: 200%;
+            animation: shimmer-cat 1.5s infinite;
+            -webkit-animation: shimmer-cat 1.5s infinite;
+            border-radius: 15px;
+            
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            .slide-fon{
+                background: transparent !important;
+                .cat-name{
+                    color: transparent !important;
+                    text-shadow: none !important;
+                    background-color: rgba(255, 255, 255, 0.7);
+                    backdrop-filter: blur(40px);
+                    margin-bottom: 5px;
+                    border-radius: .7rem;
+                    -webkit-border-radius: .7rem;
+                    -moz-border-radius: .7rem;
+                    -ms-border-radius: .7rem;
+                    -o-border-radius: .7rem;
+}
+                .cat-count{
+                    color: transparent !important;
+                    text-shadow: none !important;
+                    background-color: white;
+                    opacity: 1;
+                    background-color: rgba(255, 255, 255, 0.7);
+                    backdrop-filter: blur(40px);
+                    border-radius: .7rem;
+                    -webkit-border-radius: .7rem;
+                    -moz-border-radius: .7rem;
+                    -ms-border-radius: .7rem;
+                    -o-border-radius: .7rem;
+}
+            }
+    }
+    .swiper-slide{
+        position: relative;
+        display: flex;
+        height: 30vh;
+        width: 15vw;
+        flex-direction: column;
+        margin-right: 20px;
+        gap: 20px;
+        @media screen and (max-width: 1600px) {
+            height: 35vh;
+            width: 20vw;
+            margin-right: 15px;
+            gap: 15px;
+        }
+        @media screen and (max-width: 600px) {
+            height: 30vh;
+            width: 42vw;
+            margin-right: 2vw;
+            gap: 2vw;
+        }
+        a{
+            position: relative;
+            height: 50%;
+            width: 100%;
+        }
+        img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 1;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+        }
+        .slide-fon{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: flex-end;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.164));
+            color: white;
+            width: 100%;
+            height: 100%;
+            padding: 10px 20px;
+            border-radius: 15px;
+            z-index: 2;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            @media screen and (max-width: 600px) {
+                padding: 5px 10px;
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+}
+        }
+        .cat-name{
+            font-size: clamp(0.875rem, 0.8173rem + 0.2564vw, 1.125rem);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.425);
+            @media screen and (max-width: 600px) {
+                    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+            }
+        }
+        .cat-count{
+            font-size: clamp(0.6875rem, 0.6442rem + 0.1923vw, 0.875rem);
+            //text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            font-weight: 400;
+            opacity: .8;
+        }
+    }
+}

@@ -1,0 +1,265 @@
+@import "/public/const.scss";
+
+$gap: 40px;
+.projects {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: $gap;
+  padding: 50px 10%;
+
+  .card-project-title {
+    border-radius: 0 !important;
+    justify-content: space-between;
+    overflow: visible !important;
+
+    h2 {
+      font-family: "Muller";
+      font-size: clamp(1.375rem, 0.9135rem + 2.0513vw, 3.375rem) !important;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .text-title {
+      font-size: clamp(0.875rem, 0.6731rem + 0.8974vw, 1.75rem) !important;
+      font-weight: 400;
+      color: hsla(0, 0%, 17%, 0.8);
+    }
+
+    a {
+      background: linear-gradient(90deg, $pink, $orange, $pink);
+      background-size: 200%;
+      background-position: right;
+      text-align: center;
+      color: white;
+      border: none;
+      padding: 25px 60px;
+      font-weight: 500;
+      font-size: clamp(1rem, 0.7981rem + 0.8974vw, 1.875rem) !important;
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0, 0, 0.5, 1);
+      -webkit-transition: all 0.4s cubic-bezier(0, 0, 0.5, 1);
+      -moz-transition: all 0.4s cubic-bezier(0, 0, 0.5, 1);
+      -ms-transition: all 0.4s cubic-bezier(0, 0, 0.5, 1);
+      -o-transition: all 0.4s cubic-bezier(0, 0, 0.5, 1);
+}
+
+    a:hover {
+      scale: 1.01;
+      background-position: left;
+    }
+  }
+
+  .card-project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: calc(50% - $gap / 2);
+    overflow: hidden;
+    border-radius: 20px;
+    height: 40vh;
+    min-height: 343px;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .card-project:nth-child(n + 4) {
+    min-width: 18%;
+  }
+}
+
+@media screen and (max-width: 1785px){
+  .projects{
+    padding: 30px 5%;
+  }
+}
+
+/* --- Tablet Optimizations --- */
+@media (max-width: 1024px) {
+  .projects {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 40px 5%;
+    gap: 30px;
+
+    .card-project-title {
+      h2 {
+        font-size: 42px;
+      }
+
+      .text-title {
+        font-size: 22px;
+      }
+
+      a {
+        padding: 20px 45px;
+        font-size: 24px;
+        border-radius: 16px;
+      }
+    }
+
+    .card-project {
+      min-width: calc(50% - 15px);
+      height: 35vh;
+      min-height: 280px;
+      border-radius: 16px;
+    }
+
+    .card-project:nth-child(n + 4) {
+      min-width: calc(50% - 15px);
+    }
+  }
+}
+
+/* --- Mobile Optimizations --- */
+@media (max-width: 768px) {
+  .projects {
+    margin-top: 0px;
+    margin-bottom: 3vw;
+    padding: 30px 5%;
+    gap: 20px;
+
+    .card-project-title {
+      min-width: 100% !important;
+      height: fit-content !important;
+      margin-bottom: 20px;
+      padding: 0;
+      border-radius: 20px !important;
+
+      h2 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+      }
+
+      .text-title {
+        font-size: 18px;
+        line-height: 1.4;
+      }
+
+      a {
+        padding: 18px 35px;
+        font-size: 20px;
+        border-radius: 15px;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    .card-project {
+      min-width: 100%;
+      min-height: 200px;
+      height: 25vh;
+      border-radius: 15px;
+    }
+
+    .card-project:nth-child(n + 4) {
+      min-width: 100%;
+    }
+    .card-project:nth-child(5) {
+      img{
+        object-position: bottom;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    margin-top: 0px;
+    margin-bottom: 40px;
+    padding: 20px 3%;
+    gap: 3vw;
+
+    .card-project-title {
+      padding: 0;
+      margin-bottom: 0;
+
+      h2 {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+
+      .text-title {
+        font-size: 16px;
+      }
+
+      a {
+        padding: 15px 25px;
+        font-size: 18px;
+        border-radius: 12px;
+        margin-top: 15px;
+      }
+    }
+
+    .card-project {
+      min-height: 150px;
+      height: 22vh;
+      border-radius: 12px;
+    }
+  }
+}
+
+/* --- Touch Device Optimizations --- */
+@media (hover: none) and (pointer: coarse) {
+  .projects .card-project-title a:hover {
+    scale: 1;
+    background-position: right;
+  }
+
+  .projects .card-project-title a:active {
+    scale: 1.01;
+    background-position: left;
+  }
+}
+
+/* --- Landscape Mobile --- */
+@media (max-width: 768px) and (orientation: landscape) {
+  .projects {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .card-project-title {
+      min-width: 100% !important;
+      margin-bottom: 15px;
+    }
+
+    .card-project {
+      min-width: calc(50% - 10px);
+      height: 30vh;
+    }
+  }
+}
+
+/* --- Extra Small Devices --- */
+@media (max-width: 360px) {
+  .projects {
+    .card-project-title {
+      h2 {
+        font-size: 22px;
+      }
+
+      .text-title {
+        font-size: 14px;
+      }
+
+      a {
+        padding: 12px 20px;
+        font-size: 16px;
+      }
+    }
+
+    .card-project {
+      height: 20vh;
+      min-height: 130px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@import '/public/const.scss';
+
+@keyframes busket {
+    0%{
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+}
+50%{
+    transform: translateX(-10%);
+    -webkit-transform: translateX(-10%);
+    -moz-transform: translateX(-10%);
+    -ms-transform: translateX(-10%);
+    -o-transform: translateX(-10%);
+}
+60%{
+    transform: translateX(-10%);
+    -webkit-transform: translateX(-10%);
+    -moz-transform: translateX(-10%);
+    -ms-transform: translateX(-10%);
+    -o-transform: translateX(-10%);
+}
+    100%{
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+}
+}
+
+.cart-fixed{
+    position: fixed;
+    right: 60px;
+    bottom: 60px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background: linear-gradient(135deg, $orange, $pink);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    z-index: 9;
+    animation: busket .5s cubic-bezier(0,0,.5,1);
+    -webkit-animation: busket .5s cubic-bezier(0,0,.5,1);
+    svg{
+        width: 40px;
+        height: auto;
+    }
+}
+
+@media(max-width:992px){
+    .cart-fixed{
+        right: 30px;
+        padding: 20px;
+        svg{
+            width: 35px;
+        }
+    }
+}

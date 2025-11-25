@@ -1,0 +1,208 @@
+@import '/public/const.scss';
+
+.exclusive{
+    padding: 100px 15% 0;
+    //margin-bottom: 60px;
+    .swiper-button-prev-hit, .swiper-button-next-hit{
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        border-radius: 40px;
+        background-color: hsla(174, 6%, 35%, 0.65);
+        border: none;
+        top: calc(50% - 3vh);
+        z-index: 1;
+    }
+    .swiper-button-prev-hit{
+        left: -6%;
+    }
+    .swiper-button-next-hit{
+        right: -6%;
+    }
+    .swiper-button-prev-hit:after{
+        content: 'prev';
+    }
+    .swiper-button-next-hit:after{
+        content: 'next';
+    }
+    .swiper-button-prev-hit:after, .swiper-button-next-hit:after{
+        font-family: swiper-icons;
+        text-transform: none !important;
+        letter-spacing: 0;
+        //font-feature-settings: ;
+        font-variant: initial;
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+    }
+    .swiper-button-prev-hit.swiper-button-disabled, .swiper-button-next-hit.swiper-button-disabled {
+        opacity: 0.35;
+        cursor: auto;
+        pointer-events: none;
+    }
+    h1{
+        font-weight: 600;
+    }
+    .swiper-slide{
+        width: fit-content;
+        display: flex;
+        height: 100%;
+    }
+    .promo-catalog{
+        padding: 40px 0;
+        overflow: visible;
+    }
+    .product-card{
+        padding: 0rem 1rem 1.5rem 1rem;
+        border-radius: 1.125rem;
+        background-color: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: box-shadow 0.3s ease;
+        width: 300px;
+        height: 409px;
+        flex: 1;
+        .switch{
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            margin-bottom: 10px;
+            gap: 10px;
+            padding-left: 10px;
+            button{
+                border-radius: 8px;
+                padding: 4px 10px;
+                border: 1px solid #c8c8ce;
+                color: $font;
+                background-color: transparent;
+                font-size: 14px;
+                cursor: pointer;
+                transition: 0.3s ease;
+                -webkit-border-radius: 8px;
+                -moz-border-radius: 8px;
+                -ms-border-radius: 8px;
+                -o-border-radius: 8px;
+                -webkit-transition: 0.3s ease;
+                -moz-transition: 0.3s ease;
+                -ms-transition: 0.3s ease;
+                -o-transition: 0.3s ease;
+}
+            button.active{
+                background-color: $blue;
+                border: 1px solid $blue;
+                color: white;
+            }
+        }
+        img{
+            width: 100%;
+            height: 240px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        a{
+            display: flex;
+            flex: 1;
+            align-items: start;
+        }
+        .product-name{
+            text-align: left;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+            transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+            margin-top: 0px;
+            padding: 0 10px;
+            -webkit-transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+            -moz-transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+            -ms-transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+            -o-transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+        .product-name:hover{
+            color: $dark-blue;
+        }
+        .product-info{
+            padding: 5px 10px;
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            align-items: end;
+            justify-content: space-between;
+            .product-price{
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                font-weight: 500;
+                color: #666;
+                margin-bottom: 0px;
+                line-height: 100%;
+                height: 40px;
+            }
+            .product-button{
+                padding: 8px 20px;
+                background-color: $blue;
+                color: #fff;
+                border: none;
+                border-radius: 10px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+                -webkit-transition: background-color 0.3s ease;
+                -moz-transition: background-color 0.3s ease;
+                -ms-transition: background-color 0.3s ease;
+                -o-transition: background-color 0.3s ease;
+}
+            .product-button:hover {
+                background-color: $dark-blue;
+            }
+            
+            .product-button:active {
+                transform: scale(0.98); 
+            }
+        }
+    }
+    .product-card:hover{
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    }
+    .product-card:hover .product-image{
+        transform: scale(1.05);
+    }
+}
+@media screen and (max-width: 992px){
+    .exclusive{
+        padding: 0 3%;
+        .swiper-button-prev-hit, .swiper-button-next-hit{
+            display: none;
+        }
+        .product-card{
+            width: 240px;
+            height: 329px;
+            img{
+                height: 180px;
+            }
+            .product-name{
+                font-size: 16px;
+            }
+            .product-info{
+                .product-price{
+                    font-size: 16px;
+                    height: 37px;
+                }
+                .product-button{
+                    font-size: 14px;
+                }
+            }
+            .switch{
+                button{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

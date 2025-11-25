@@ -1,0 +1,203 @@
+@import "/public/const.scss";
+
+.reviews {
+  padding: 50px 10%;
+  @media screen and (max-width: 992px) {
+    padding: 50px 5%;
+  }
+  h2 {
+    font-family: "Muller";
+    font-weight: 700;
+    font-size: 54px;
+    width: 70%;
+    line-height: 1;
+    @media screen and (max-width: 992px) {
+      width: 100%;
+      font-size: 34px;
+    }
+  }
+  .swiper-button-prev-new,
+  .swiper-button-next-new {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 40px;
+    background: -webkit-linear-gradient(0deg, $orange, $pink);
+    background: linear-gradient(0deg, $orange, $pink);
+    border: none;
+    top: calc(50% - 3vh);
+    z-index: 1;
+  }
+  .swiper-button-prev-new {
+    left: -4%;
+  }
+  .swiper-button-next-new {
+    right: -4%;
+  }
+  .swiper-button-prev-new:after {
+    content: "prev";
+  }
+  .swiper-button-next-new:after {
+    content: "next";
+  }
+  .swiper-button-prev-new:after,
+  .swiper-button-next-new:after {
+    font-family: swiper-icons;
+    text-transform: none !important;
+    letter-spacing: 0;
+    //font-feature-settings: ;
+    font-variant: initial;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+  }
+  .swiper-button-prev-new.swiper-button-disabled,
+  .swiper-button-next-new.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
+  }
+  .reviews-slider {
+    overflow: visible;
+    padding: 40px 0;
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 30px;
+      background-color: white;
+      width: 450px;
+      height: 300px;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+      .profile {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        .rank {
+          display: flex;
+          flex-direction: column;
+          .star {
+            display: flex;
+            flex-direction: row;
+          }
+          svg {
+            width: 30px;
+            height: auto;
+          }
+          p {
+            font-size: 15px;
+            margin-bottom: 0;
+          }
+        }
+      }
+      .review {
+        font-size: 15px;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1785px) {
+  .reviews {
+    padding: 50px 5%;
+    .swiper-button-prev-new {
+      left: -2%;
+    }
+    .swiper-button-next-new {
+      right: -2%;
+    }
+    h1 {
+      padding: 0 10%;
+    }
+  }
+}
+
+@media screen and (max-width: 1570px) {
+  .reviews {
+    .reviews-link {
+      font-size: 20px;
+      padding: 0 5%;
+      a {
+        color: $blue;
+      }
+      a:hover {
+        color: $dark-blue;
+      }
+    }
+    .swiper-button-prev-new {
+      left: -3%;
+    }
+    .swiper-button-next-new {
+      right: -3%;
+    }
+    h1 {
+      padding: 0 5%;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .reviews {
+    padding: 40px 3%;
+    h2 {
+      padding: 0 3%;
+    }
+    .swiper-button-prev-new,
+    .swiper-button-next-new {
+      display: none;
+    }
+    .reviews-slider {
+      margin: 0;
+      .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        background-color: white;
+        width: 300px;
+        height: 250px;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        .profile {
+          display: flex;
+          flex-direction: row;
+          gap: 15px;
+          img {
+            height: 60px;
+            width: auto;
+          }
+          .rank {
+            display: flex;
+            flex-direction: column;
+            strong {
+              font-size: 15px;
+            }
+            svg {
+              width: 16px;
+              height: auto;
+            }
+            p {
+              font-size: 13px;
+            }
+          }
+        }
+        .review {
+          font-size: 12px;
+          flex: 1;
+        }
+      }
+    }
+  }
+}

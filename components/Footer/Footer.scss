@@ -1,0 +1,201 @@
+@import '/public/const.scss';
+
+footer{
+    padding: 65px 10%;
+    background-color: #2C2C2C;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    a{
+        transition: .3s ease;
+        -webkit-transition: .3s ease;
+        -moz-transition: .3s ease;
+        -ms-transition: .3s ease;
+        -o-transition: .3s ease;
+        svg{
+            path{
+                transition: .3s ease;
+                -webkit-transition: .3s ease;
+                -moz-transition: .3s ease;
+                -ms-transition: .3s ease;
+                -o-transition: .3s ease;
+            }
+        }
+    }   
+    a:hover{
+        color: $pink;
+        svg{
+            path{
+                fill: $pink;
+            }
+        }
+    }
+    .logo-footer{
+        display: flex;
+        align-items: center;
+        gap: 100px;
+    }
+    .menu-footer{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        button{
+            border: none;
+            background: linear-gradient(90deg, $orange, $pink);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    display: inline-block;
+        }
+        .links{
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+        .adress{
+            font-size: 14px;
+            font-weight: 300;
+            opacity: .75;
+            p{
+                margin-bottom: 0;
+            }
+        }
+    }
+    .contacts-footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        .footer-tel{
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            p{
+                font-size: 14px;
+                font-weight: 400;
+                opacity: .75;
+            }
+        }
+        .links-contacts{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            svg{
+                width: 40px;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1785px){
+    footer{
+        padding: 65px 10%;
+    }
+}
+
+@media screen and (max-width: 1570px){
+    footer{
+        padding: 55px 5%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    footer{
+        padding: 35px 5%;
+        background-color: $font;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        a{
+            transition: .3s ease;
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -ms-transition: .3s ease;
+            -o-transition: .3s ease;
+            svg{
+                path{
+                    transition: .3s ease;
+                    -webkit-transition: .3s ease;
+                    -moz-transition: .3s ease;
+                    -ms-transition: .3s ease;
+                    -o-transition: .3s ease;
+                }
+            }
+        }   
+        a:hover{
+            color: $pink;
+            svg{
+                path{
+                    fill: $pink;
+                }
+            }
+        }
+        .logo-footer{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            img{
+                width: 80px;
+                height: auto;
+            }
+            h3{
+                font-size: 32px;
+                font-weight: 600;
+            }
+        }
+        .menu-footer{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            .links{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                a{
+                    //width: 100%;
+                    text-align: center;
+                }
+            }
+            .adress{
+                font-size: 14px;
+                font-weight: 400;
+                opacity: .75;
+                p{
+                    margin-bottom: 0;
+                    text-align: center;
+                }
+            }
+        }
+        .contacts-footer{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            .footer-tel{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                p{
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 400;
+                    opacity: .75;
+                }
+            }
+            .links-contacts{
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+    }
+}

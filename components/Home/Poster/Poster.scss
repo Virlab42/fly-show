@@ -1,0 +1,250 @@
+@import '/public/const.scss';
+
+@keyframes poster {
+    0%{
+        opacity: 0;
+        transform: translateY(50%);
+        -webkit-transform: translateY(50%);
+        -moz-transform: translateY(50%);
+        -ms-transform: translateY(50%);
+        -o-transform: translateY(50%);
+}
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes imageposter {
+    0%{
+        transform: rotate(0) scale(.5);
+        -webkit-transform: rotate(0) scale(.5);
+        -moz-transform: rotate(0) scale(.5);
+        -ms-transform: rotate(0) scale(.5);
+        -o-transform: rotate(0) scale(.5);
+}
+    100%{
+        transform: rotate(90deg) scale(1);
+        -webkit-transform: rotate(90deg) scale(1);
+        -moz-transform: rotate(90deg) scale(1);
+        -ms-transform: rotate(90deg) scale(1);
+        -o-transform: rotate(90deg) scale(1);
+    }
+}
+
+@keyframes sloganposter {
+    0%{
+        opacity: 0;
+        transform: translateX(30%);
+        -webkit-transform: translateX(30%);
+        -moz-transform: translateX(30%);
+        -ms-transform: translateX(30%);
+        -o-transform: translateX(30%);
+}
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+}
+
+.poster-container{
+    animation: poster 1s ease;
+    -webkit-animation: poster 1s ease;
+    overflow: visible;
+}
+.poster{
+    width: 70%;
+    .swiper-pagination-horizontal{
+        width: fit-content;
+        left: 40px;
+        bottom: 40px;
+    }
+    .swiper-pagination-bullet {
+        background: #0000009f;
+      }
+    .swiper-slide{
+        height: 22vh;
+        position: relative;
+        background-color: white;
+        border-radius: 25px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -ms-border-radius: 25px;
+        -o-border-radius: 25px;
+        padding: 40px;
+        img{
+            position: absolute;
+            height: 180%;
+            width: auto;
+            top: 0;
+            right: 0;
+            transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            z-index: -1;
+            animation: imageposter 1s ease-in-out;
+            -webkit-animation: imageposter 1s ease-in-out;
+}
+        .services-card{
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            height: 100%;
+            div{
+                p{
+                    font-size: 28px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+            strong{
+                font-size: 100px;
+                align-self: center;
+                font-weight: 800;
+                letter-spacing: 5px;
+                line-height: 100%;
+                animation: sloganposter 1s ease-in-out;
+                -webkit-animation: sloganposter 1s ease-in-out;
+            }
+        }
+    }
+    .swiper-slide:nth-child(2){
+        span{
+            display: flex;
+            width: 80%;
+            font-size: 18px;
+        }
+        img{
+            position: absolute;
+            height: 200%;
+            width: auto;
+            top: -60%;
+            right: 10%;
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            z-index: -1;
+            animation: imageposter 1s ease-in-out;
+            -webkit-animation: imageposter 1s ease-in-out;
+        }
+    }
+}
+@media screen and (max-width: 1785px){
+    .poster{
+        width: 80%;
+        .swiper-slide{
+            min-height: 175px;
+        }
+    }
+}
+
+@media screen and (max-width: 1570px){
+    .poster{
+        width: 90%;
+        .swiper-slide{
+            min-height: 175px;
+        }
+    }
+}
+@media screen and (max-width: 1400px){
+    .poster{
+        width: 90%;
+        .swiper-slide{
+            min-height: 175px;
+        }
+    }
+    .poster .swiper-slide .services-card strong {
+        font-size: 90px;
+    }
+}
+
+@media screen and (max-width: 1300px){
+    .poster{
+        width: 90%;
+        .swiper-slide{
+            min-height: 175px;
+        }
+    }
+    .poster .swiper-slide .services-card strong {
+        font-size: 80px;
+    }
+    .poster .swiper-slide .services-card div p {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .poster{
+        width: 94%;
+        .swiper-pagination-horizontal{
+            width: fit-content;
+            left: 40px;
+            bottom: 40px;
+        }
+        .swiper-pagination-bullet {
+            background: #0000009f;
+          }
+        .swiper-slide{
+            height: 22vh;
+            min-height: 300px;
+            padding: 25px;
+            img{
+                position: absolute;
+                height: 100%;
+                width: auto;
+                top: auto;
+                right: -15%;
+                bottom: -40%;
+            }
+            .services-card{
+                flex-direction: column;
+                gap: 20px;
+                div{
+                    p{
+                        font-size: 20px;
+                    }
+                }
+                strong{
+                    font-size: 60px;
+                }
+            }
+        }
+        .swiper-slide:nth-child(2){
+            span{
+                display: flex;
+                width: 100%;
+                font-size: 12px;
+            }
+            img{
+                position: absolute;
+                height: 100%;
+                width: auto;
+                top: auto;
+                right: 0;
+                bottom: -8%;
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                z-index: -1;
+                animation: imageposter 1s ease-in-out;
+                -webkit-animation: imageposter 1s ease-in-out;
+            }
+        }
+    }
+}

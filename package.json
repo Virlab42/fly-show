@@ -1,0 +1,32 @@
+{
+  "name": "new-iluma",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@woocommerce/woocommerce-rest-api": "^1.0.2",
+    "bootstrap": "^5.3.3",
+    "framer-motion": "^12.23.12",
+    "inputmask": "^5.0.9",
+    "mysql2": "^3.12.0",
+    "next": "15.1.4",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^7.0.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-phone-input-2": "^2.15.1",
+    "sass": "^1.83.4",
+    "swiper": "^11.2.1",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.4"
+  }
+}
