@@ -8,7 +8,7 @@ export async function POST(req) {
 
     console.log("Received payment request:", {
       amount,
-      cartItems,
+      cartItems: cartItems.length,
       customerInfo,
     });
 
@@ -19,32 +19,6 @@ export async function POST(req) {
         { status: 400 }
       );
     }
-
-    // Формируем описание заказа
-    const itemsDescription = cartItems
-      .map((item) => `${item.name} - ${item.quantity} шт.`)
-      .join(", ");
-
-    const description = `Заказ от ${customerInfo.lastName}. ${itemsDescription}`;
-
-    // Подготавливаем данные для чека
-    const receipt = {
-      customer: {
-        full_name: customerInfo.lastName,
-        phone: customerInfo.phoneNumber,
-      },
-      items: cartItems.map((item) => ({
-        description: item.name.substring(0, 128), // Ограничение ЮKassa
-        quantity: item.quantity.toString(),
-        amount: {
-          value: (item.price * item.quantity).toFixed(2),
-          currency: "RUB",
-        },
-        vat_code: "1",
-        payment_mode: "full_payment",
-        payment_subject: "commodity",
-      })),
-    };
 
     // Проверяем наличие переменных окружения
     if (!process.env.YOOKASSA_SHOP_ID || !process.env.YOOKASSA_SECRET) {
@@ -59,6 +33,7 @@ export async function POST(req) {
 
     console.log("Sending request to YooKassa...");
 
+    // Минимальный запрос без description и receipt
     const response = await fetch("https://api.yookassa.ru/v3/payments", {
       method: "POST",
       headers: {
@@ -85,8 +60,6 @@ export async function POST(req) {
           }/checkout?payment=cancel`,
         },
         capture: true,
-        description: description,
-        receipt: receipt,
         metadata: {
           customer_name: customerInfo.lastName,
           customer_phone: customerInfo.phoneNumber,
