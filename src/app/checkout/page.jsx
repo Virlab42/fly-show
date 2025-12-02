@@ -539,7 +539,7 @@ ${cartItems
               <input
                 type="text"
                 name="lastName"
-                placeholder="Ваше имя"
+                placeholder="ФИО"
                 value={formData.lastName}
                 onChange={handleInputChange}
                 className={errors.lastName ? "input-error" : ""}
