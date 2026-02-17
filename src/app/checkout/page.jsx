@@ -477,41 +477,72 @@ ${cartItems
         clearCart();
         window.location.href = "/";
       } else if (paymentMethod === "tbank") {
-        telegramSent = await sendTelegramNotification(
-          formData,
-          cartItems,
-          amount,
-          addressMessage,
-          paymentMethod
-        );
-        emailSent = await sendEmailNotification(
-          formData,
-          cartItems,
-          amount,
-          addressMessage,
-          paymentMethod
-        );
-        if (telegramSent && emailSent) {
-          alert(
-            "✅ Заявка на оплату долями отправлена! С вами свяжется менеджер для оформления."
-          );
-        } else if (telegramSent) {
-          alert(
-            "✅ Заявка отправлена в Telegram! С вами свяжется менеджер для оформления долями."
-          );
-        } else if (emailSent) {
-          alert(
-            "✅ Заявка отправлена на почту! С вами свяжется менеджер для оформления долями."
-          );
-        } else {
-          alert(
-            "⚠️ Заявка оформлена, но возникла проблема с уведомлениями. Мы свяжемся с вами для оформления оплаты долями."
-          );
-        }
+        console.log("[DOLYAME] start create order", {
+    amount,
+    itemsCount: cartItems?.length,
+    customer: { lastName: formData.lastName, phoneNumber: formData.phoneNumber },
+  });
+  // 1) создаём заказ в Долями (на сервере, с сертификатом)
+  const dolyameRes = await fetch("/api/tbank", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      amount,
+      cartItems,
+      customerInfo: {
+        lastName: formData.lastName,
+        phoneNumber: formData.phoneNumber,
+        // если позже добавишь email в форму — просто раскомментируй
+        // email: formData.email,
+      },
+    }),
+  });
 
-        clearCart();
-        window.location.href = "/";
-      }
+  console.log("[DOLYAME] /api/tbank status:", dolyameRes.status);
+
+  const dolyameJson = await dolyameRes.json().catch((e) => {
+    console.log("[DOLYAME] json parse error", e);
+    return null;
+  });
+
+  console.log("[DOLYAME] /api/tbank response json:", dolyameJson);
+
+  if (!dolyameRes.ok) {
+    // тут удобно видеть реальную ошибку от Долями
+    throw new Error(dolyameJson?.details || dolyameJson?.error || "Ошибка Долями");
+  }
+
+  // ожидаем, что твой route.js возвращает { ok: true, data: { link, id, ... } }
+  const dolyameData = dolyameJson?.data || dolyameJson;
+  const dolyameLink = dolyameData?.link;
+  payId = dolyameData?.id || null;
+
+  if (!dolyameLink) {
+    throw new Error("Долями не вернул ссылку (link) для редиректа");
+  }
+
+  // 2) уведомления (перед редиректом)
+  telegramSent = await sendTelegramNotification(
+    formData,
+    cartItems,
+    amount,
+    addressMessage,
+    paymentMethod,
+    payId
+  );
+  emailSent = await sendEmailNotification(
+    formData,
+    cartItems,
+    amount,
+    addressMessage,
+    paymentMethod,
+    payId
+  );
+
+  // 3) очищаем корзину и редиректим на Долями
+  clearCart();
+  window.location.href = dolyameLink;
+}
     } catch (err) {
       console.error("Ошибка при оформлении заказа:", err);
       alert(
