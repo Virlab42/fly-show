@@ -145,9 +145,9 @@ export async function POST(req) {
           email: customerInfo?.email || "test@example.com",
         },
       },
-      notification_url: `${origin}/api/dolyame/notify`,
-      success_url: `${origin}/checkout/success`,
-      fail_url: `${origin}/checkout/fail`,
+      notification_url: `${origin}/`,
+      success_url: `${origin}/success`,
+      fail_url: `${origin}/`,
     };
 
     const httpsAgent = new https.Agent({
